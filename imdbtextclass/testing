@@ -1,0 +1,32 @@
+import nltk
+from nltk.corpus import stopwords
+import re
+
+# nltk.download('wordnet')
+text = "help mei am not understandingi am changing my travel date"
+ps = nltk.PorterStemmer()
+tokenized_text = nltk.word_tokenize(text)
+filtered_text = []
+stop_words = set(stopwords.words("english"))
+for w in tokenized_text:
+    if w not in stop_words:
+        filtered_text.append(w)
+stemmed_words = []
+print(filtered_text)
+
+for w in filtered_text:
+    stemmed_words.append(ps.stem(w))
+print(stemmed_words)
+
+lem = nltk.WordNetLemmatizer()
+
+lemmatized_words = []
+for w in filtered_text:
+    lemmatized_words.append(lem.lemmatize(w, "v"))
+print(lemmatized_words)
+
+
+
+# print(nltk.pos_tag())
+
+
